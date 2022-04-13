@@ -7,7 +7,7 @@ var router = express.Router();
 }); */
 
 router.get('/', function(req, res) {
-  res.send({greeting: 'Hello React x Node.js'});
+  res.send('Express World');
 })
 
 module.exports = router;

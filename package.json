@@ -5,7 +5,8 @@
   "scripts": {
     "server": "cd server && nodemon server",
     "client": "cd client && npm start",
-    "start": "nodemon ./routes/server.js"
+    "start": "nodemon ./bin/www",
+    "//": "nodemon ./routes/server.js"
   },
   "dependencies": {
     "axios": "^0.26.1",
