@@ -13,6 +13,10 @@ router.get('/', function (req, res, next) {
     res.send('respond with a resource');
 });
 
+router.get('/aa', function (req, res, next) {
+    res.send('hjw');
+});
+
 function RequestMessage() {
     return 'request Message';
 }

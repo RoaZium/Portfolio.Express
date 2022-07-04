@@ -1,9 +1,10 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('Visitor Response');
+router.get("/", function (req, res, next) {
+  console.log("hjk");
+  res.send("Visitor Response");
 });
 
 module.exports = router;
