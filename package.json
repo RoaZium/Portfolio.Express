@@ -6,7 +6,17 @@
     "server": "cd server && nodemon server",
     "client": "cd client && npm start",
     "start": "nodemon ./bin/www",
+    "build": "pkg .",
     "//": "nodemon ./routes/server.js"
+  },
+  "bin": {
+    "app": "./bin/www"
+  },
+  "pkg": {
+    "assets": [
+      "views/**/*",
+      "public/**/*"
+    ]
   },
   "dependencies": {
     "axios": "^0.26.1",
@@ -21,5 +31,8 @@
     "nodemon": "^2.0.15",
     "pug": "^2.0.4",
     "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "pkg": "^5.7.0"
   }
 }

@@ -21,14 +21,16 @@ app.use(
 app.engine("pug", require("pug").__express);
 
 // view engine setup
-app.set("views", path.join(__dirname, "/views"));
-app.set("view engine", "pug");
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "views")));
 app.use(express.static(path.join(__dirname, "public")));
-app.use("/", express.static(path.join(__dirname, "./react")));
+app.use("/", express.static(path.join(__dirname, "build")));
+
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "pug");
 
 app.use("/user", usersRouter);
 app.use("/visitorss", visitorsRouter);
