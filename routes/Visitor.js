@@ -19,7 +19,6 @@ router.get("/", async (req, res, next) => {
     .catch(function (error) {
       console.log(error);
     });
-  console.log("test");
 });
 
 module.exports = router;

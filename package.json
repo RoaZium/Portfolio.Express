@@ -6,17 +6,21 @@
     "server": "cd server && nodemon server",
     "client": "cd client && npm start",
     "start": "nodemon ./bin/www",
-    "build": "pkg .",
-    "//": "nodemon ./routes/server.js"
+    "build": "pkg ."
   },
   "bin": {
     "app": "./bin/www"
   },
   "pkg": {
+    "scripts": "build/**/*.js",
     "assets": [
       "views/**/*",
       "public/**/*"
-    ]
+    ],
+    "targets": [
+      "node16-win-x64"
+    ],
+    "outputPath": ""
   },
   "dependencies": {
     "axios": "^0.26.1",
