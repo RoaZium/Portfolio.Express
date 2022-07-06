@@ -12,6 +12,14 @@ var postConfig = {
   data: null,
 };
 
+var deleteConfig = {
+  method: "delete",
+  url: null,
+  headers: {
+    login_token: null,
+  },
+};
+
 // 방문자 생성
 router.post("/", async (req, res, next) => {
   postConfig.data = req.body;
@@ -77,9 +85,12 @@ router.get(async (req, res, next) => {
 
 // 방문자 삭제(관리자용)
 router.get(async (req, res, next) => {
-  await axios
-    .delete()
+  deleteConfig.url = process.env.API_URL + req.originalUrl;
+  deleteConfig.headers.login_token = req.headers.login_token;
+
+  await axios(deleteConfig)
     .then(function (response) {
+      res.send(JSON.stringify(response.data));
       console.log(JSON.stringify(response.data));
     })
     .catch(function (error) {
