@@ -5,8 +5,9 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cors = require("cors");
 var loginRouter = require("./routes/Login");
-var visitorRouter = require("./routes/Visitor");
 var managerRouter = require("./routes/Manager");
+var visitorRouter = require("./routes/Visitor");
+var visitorAdminRouter = require("./routes/VisitorAdmin");
 var app = express();
 
 // view engine setup
@@ -23,6 +24,7 @@ app.set("view engine", "pug");
 app.use("/login", loginRouter);
 app.use("/visitormanagerid", managerRouter);
 app.use("/visitor", visitorRouter);
+app.use("/visitoradmin", visitorAdminRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
