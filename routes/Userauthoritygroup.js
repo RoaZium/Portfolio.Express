@@ -3,32 +3,20 @@ var router = express.Router();
 var axios = require("axios");
 require("dotenv").config();
 
-var authorizationData = {
-  visitor_id: null,
-  authorities: [
-    {
-      authoritygroup_id: null,
-    },
-  ],
-};
-
-var putConfig = {
-  method: "delete",
+var getConfig = {
+  method: "get",
   url: null,
   headers: {
     login_token: null,
-    "Content-Type": "application/json",
   },
-  data: authorizationData,
 };
 
-// 출입그룹권한 수정
-router.put("/", async (req, res, next) => {
-  putConfig.url = process.env.API_URL + req.originalUrl;
-  putConfig.headers.login_token = req.headers.login_token;
-  //   authorizationData.authorities[0].authoritygroup_id =
+// 출입그룹권한 조회(사용자)
+router.get("/", async (req, res, next) => {
+  getConfig.url = process.env.API_URL + req.originalUrl;
+  getConfig.headers.login_token = req.headers.login_token;
 
-  await axios(putConfig)
+  await axios(getConfig)
     .then(function (response) {
       res.send(JSON.stringify(response.data));
     })
