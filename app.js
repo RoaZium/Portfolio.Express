@@ -12,6 +12,7 @@ var visitorRouter = require("./routes/Visitor");
 var visitorAdminRouter = require("./routes/VisitorAdmin");
 var visitorApprovalRouter = require("./routes/VisitorApproval");
 var visitorauthoritygroupRouter = require("./routes/Visitorauthoritygroup");
+var visitorCardRouter = require("./routes/VisitorCard");
 var app = express();
 
 // view engine setup
@@ -33,6 +34,7 @@ app.use("/visitor", visitorRouter);
 app.use("/visitoradmin", visitorAdminRouter);
 app.use("/visitorapproval", visitorApprovalRouter);
 app.use("/visitorauthoritygroup", visitorauthoritygroupRouter);
+app.use("/visitorcard", visitorCardRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
