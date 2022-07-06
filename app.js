@@ -10,6 +10,7 @@ var managerRouter = require("./routes/Manager");
 var userauthoritygroupRouter = require("./routes/Userauthoritygroup");
 var visitorRouter = require("./routes/Visitor");
 var visitorAdminRouter = require("./routes/VisitorAdmin");
+var visitorApprovalRouter = require("./routes/VisitorApproval");
 var visitorauthoritygroupRouter = require("./routes/Visitorauthoritygroup");
 var app = express();
 
@@ -30,6 +31,7 @@ app.use("/userauthoritygroup", userauthoritygroupRouter);
 app.use("/visitormanagerid", managerRouter);
 app.use("/visitor", visitorRouter);
 app.use("/visitoradmin", visitorAdminRouter);
+app.use("/visitorapproval", visitorApprovalRouter);
 app.use("/visitorauthoritygroup", visitorauthoritygroupRouter);
 
 // catch 404 and forward to error handler
