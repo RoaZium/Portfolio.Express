@@ -1,11 +1,11 @@
 var express = require("express");
 var router = express.Router();
 var axios = require("axios");
-require("dotenv").config();
+var productionConfig = require("../config/production.config");
 
 var postConfig = {
   method: "post",
-  url: process.env.API_URL + "/login",
+  url: productionConfig.API_URL + "/login",
   headers: {
     "Content-Type": "application/json",
   },

@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var axios = require("axios");
-require("dotenv").config();
+var productionConfig = require("../config/production.config");
 
 var getConfig = {
   method: "get",
@@ -13,7 +13,7 @@ var getConfig = {
 
 // 출입그룹권한 조회(전체목록)
 router.get("/", async (req, res, next) => {
-  getConfig.url = process.env.API_URL + req.originalUrl;
+  getConfig.url = productionConfig.API_URL + req.originalUrl;
   getConfig.headers.login_token = req.headers.login_token;
 
   await axios(getConfig)

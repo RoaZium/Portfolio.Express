@@ -1,11 +1,11 @@
 var express = require("express");
 var router = express.Router();
 var axios = require("axios");
-require("dotenv").config();
+var productionConfig = require("../config/production.config");
 
 var postConfig = {
   method: "post",
-  url: process.env.API_URL + "/visitor",
+  url: productionConfig.API_URL + "/visitor",
   headers: {
     "Content-Type": "application/json",
   },
@@ -44,9 +44,8 @@ router.post("/", async (req, res, next) => {
 
 // 방문자 조회
 router.get("/", async (req, res, next) => {
-  console.log("API", process.env.API_URL);
   await axios
-    .get(process.env.API_URL + req.originalUrl)
+    .get(productionConfig.API_URL + req.originalUrl)
     .then(function (response) {
       res.send(JSON.stringify(response.data));
       console.log(response);
@@ -57,35 +56,9 @@ router.get("/", async (req, res, next) => {
     });
 });
 
-// 방문자 조회(관리자용)
-router.get(async (req, res, next) => {
-  await axios
-    .get()
-    .then(function (response) {
-      console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-      res.send(error);
-      console.log(error);
-    });
-});
-
-// 방문자 승인(관리자용)
-router.get(async (req, res, next) => {
-  await axios
-    .get()
-    .then(function (response) {
-      console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-      res.send(error);
-      console.log(error);
-    });
-});
-
 // 방문자 삭제(관리자용)
-router.get(async (req, res, next) => {
-  deleteConfig.url = process.env.API_URL + req.originalUrl;
+router.delete("/", async (req, res, next) => {
+  deleteConfig.url = productionConfig.API_URL + req.originalUrl;
   deleteConfig.headers.login_token = req.headers.login_token;
 
   await axios(deleteConfig)

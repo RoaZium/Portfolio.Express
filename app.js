@@ -13,6 +13,7 @@ var visitorAdminRouter = require("./routes/VisitorAdmin");
 var visitorApprovalRouter = require("./routes/VisitorApproval");
 var visitorauthoritygroupRouter = require("./routes/Visitorauthoritygroup");
 var visitorCardRouter = require("./routes/VisitorCard");
+const { API_URL } = require("./config/production.config");
 var app = express();
 
 // view engine setup
@@ -52,8 +53,9 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-app.listen(5000, () => {
-  console.log("server is running on 5000");
+app.listen(43000, () => {
+  console.log(API_URL);
+  console.log("server is running on 43000");
 });
 
 module.exports = app;

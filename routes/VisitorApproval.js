@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var axios = require("axios");
-require("dotenv").config();
+var productionConfig = require("../config/production.config");
 
 var putData = {
   site_id: null,
@@ -21,7 +21,7 @@ var putConfig = {
 
 // 방문자 승인(관리자용)
 router.put("/", async (req, res, next) => {
-  putConfig.url = process.env.API_URL + req.originalUrl;
+  putConfig.url = productionConfig.API_URL + req.originalUrl;
   putConfig.headers.login_token = req.headers.login_token;
   putConfig.data = req.body;
 

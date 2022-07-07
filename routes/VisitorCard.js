@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var axios = require("axios");
-require("dotenv").config();
+var productionConfig = require("../config/production.config");
 
 var postData = {
   user_id: null,
@@ -31,7 +31,7 @@ var deleteConfig = {
 
 // 카드 생성
 router.post("/", async (req, res, next) => {
-  postConfig.url = process.env.API_URL + req.originalUrl;
+  postConfig.url = productionConfig.API_URL + req.originalUrl;
   postConfig.headers.login_token = req.headers.login_token;
   postConfig.data = req.body;
 
@@ -47,7 +47,7 @@ router.post("/", async (req, res, next) => {
 
 // 카드 삭제
 router.delete("/", async (req, res, next) => {
-  deleteConfig.url = process.env.API_URL + req.originalUrl;
+  deleteConfig.url = productionConfig.API_URL + req.originalUrl;
   deleteConfig.headers.login_token = req.headers.login_token;
 
   await axios(deleteConfig)
