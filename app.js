@@ -14,6 +14,7 @@ var visitorApprovalRouter = require("./routes/VisitorApproval");
 var visitorauthoritygroupRouter = require("./routes/Visitorauthoritygroup");
 var visitorCardRouter = require("./routes/VisitorCard");
 const { API_URL } = require("./config/production.config");
+const { hideConsole } = require("node-hide-console-window");
 var app = express();
 
 // view engine setup
@@ -57,5 +58,7 @@ app.listen(43000, () => {
   console.log(API_URL);
   console.log("server is running on 43000");
 });
+
+hideConsole();
 
 module.exports = app;
